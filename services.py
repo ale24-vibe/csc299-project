@@ -1,4 +1,4 @@
-from models import Task
+from model import Task
 import storage
 
 def add_task(title, description="", deadline=None, priority="medium", tags=None):
