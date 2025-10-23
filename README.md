@@ -13,7 +13,7 @@ This is a prototype command-line task management system built in Python for the 
 - 💾 Persistent storage using `tasks.json`
 
 ## File Structure
-``
+```text
 Code block expanded
 tasks1/
 ├── main.py        # CLI interface for user interaction
@@ -21,7 +21,7 @@ tasks1/
 ├── model.py       # Task data model using dataclasses
 ├── storage.py     # JSON-based persistence layer
 └── README.md      # Project documentation
-``
+```
 
 ## Requirements
 - Python 3.8 or higher
@@ -49,6 +49,7 @@ help – Show available commands
 exit – Exit the program
 
 ## Example
+```text
 > python main.py
 Welcome to Task Manager (type 'help' for commands)
 > add Finish CSC299 prototype
@@ -57,6 +58,7 @@ Added task: Finish CSC299 prototype (id=abc12345)
 [todo] abc12345 | Finish CSC299 prototype | Priority: medium | Deadline: None
 > done abc12345
 Marked abc12345 as done.
+```
 
 ## Notes
 
