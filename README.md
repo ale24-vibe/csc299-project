@@ -49,7 +49,6 @@ help – Show available commands
 exit – Exit the program
 
 ## Example
-``
 > python main.py
 Welcome to Task Manager (type 'help' for commands)
 > add Finish CSC299 prototype
@@ -58,7 +57,6 @@ Added task: Finish CSC299 prototype (id=abc12345)
 [todo] abc12345 | Finish CSC299 prototype | Priority: medium | Deadline: None
 > done abc12345
 Marked abc12345 as done.
-``
 
 ## Notes
 
