@@ -49,6 +49,7 @@ help – Show available commands
 exit – Exit the program
 
 ## Example
+``
 > python main.py
 Welcome to Task Manager (type 'help' for commands)
 > add Finish CSC299 prototype
