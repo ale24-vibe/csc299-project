@@ -14,11 +14,14 @@ def list_tasks():
 
 def mark_done(task_id):
     tasks = storage.load_tasks()
-    found = False
     for task in tasks:
-        if str(task.id).startswith(task_id):
+        if str(task.id).startswith(str(task_id)):
             task.status = "done"
-            found = True
-    if found:
-        storage.save_tasks(tasks)
-    return found
+            storage.save_tasks(tasks)
+            return True
+    return False
+
+def search_tasks(keyword):
+    tasks = storage.load_tasks()
+    keyword_lower = keyword.lower()
+    return [task for task in tasks if keyword_lower in task.title.lower()]
