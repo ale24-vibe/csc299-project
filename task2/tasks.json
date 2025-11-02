@@ -1,0 +1,11 @@
+[
+  {
+    "id": "a211e662-c57a-4f4a-92f1-bd105abc6219",
+    "title": "Smoke test",
+    "description": "desc",
+    "deadline": null,
+    "priority": "low",
+    "status": "todo",
+    "tags": []
+  }
+]
