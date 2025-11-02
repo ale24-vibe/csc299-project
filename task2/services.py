@@ -16,19 +16,20 @@ def list_tasks() -> List[Task]:
     return storage.load_tasks()
 
 
-def mark_done(task_id: str) -> bool:
-    """Mark a task done by id prefix or full id. Returns True when a task was updated."""
+def mark_done(task_id: str) -> int:
+    """Mark a task done by id prefix or full id. Returns the count of tasks updated. Raises ValueError if multiple matches found."""
     tasks = storage.load_tasks()
-    matched = 0
+    updated = 0
     for t in tasks:
         if str(t.id).startswith(str(task_id)):
             if t.status != "done":
                 t.status = "done"
-            matched += 1
-    if matched:
+                updated += 1
+    if updated:
         storage.save_tasks(tasks)
         return True
     return False
+    return matched
 
 
 def search_tasks(keyword) -> List[Task]:

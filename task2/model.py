@@ -22,7 +22,12 @@ class Task:
             return False
         try:
             dt = datetime.fromisoformat(self.deadline)
-            return dt < datetime.now()
+            if dt.tzinfo is None:
+                now = datetime.now()
+            else:
+                from datetime import timezone
+                now = datetime.now(dt.tzinfo)
+            return dt < now
         except Exception:
             # If the stored deadline isn't a valid ISO string, consider it not overdue
             return False

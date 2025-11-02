@@ -16,7 +16,7 @@ This is the second iteration of the Task Manager prototype for the CSC299 final 
 
 ## File Structure
 ```
-tasks2/
+task2/
 ├── main.py        # CLI interface for user interaction
 ├── service.py     # Core logic for task operations
 ├── model.py       # Task data model using dataclasses
@@ -29,9 +29,9 @@ tasks2/
 - No external dependencies (uses Python standard library)
 
 ## How to Run
-1. Navigate to the `tasks2` directory:
+1. Navigate to the `task2` directory:
    ```bash
-   cd csc299-project/tasks2
+   cd csc299-project/task2
    ```
 
 2. Run the task manager:
