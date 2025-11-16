@@ -1,0 +1,14 @@
+README.md
+setup.py
+src/tasks5.egg-info/PKG-INFO
+src/tasks5.egg-info/SOURCES.txt
+src/tasks5.egg-info/dependency_links.txt
+src/tasks5.egg-info/top_level.txt
+src/tasks_manager/__init__.py
+src/tasks_manager/__main__.py
+src/tasks_manager/cli.py
+src/tasks_manager/model.py
+src/tasks_manager/storage.py
+tests/test_cli.py
+tests/test_model.py
+tests/test_storage.py
