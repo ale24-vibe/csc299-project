@@ -1,5 +1,7 @@
 # tasks5 — Tasks manager scaffold (from spec-kit)
 
+[![Python tests](https://github.com/ale24-vibe/csc299-project/actions/workflows/python-tests.yml/badge.svg?branch=001-build-tasks-manager)](https://github.com/ale24-vibe/csc299-project/actions/workflows/python-tests.yml)
+
 This directory contains a small, teaching-focused tasks manager implementation created from the spec-kit scaffold. It is intentionally minimal: a Task model, a JSON-backed storage layer, and a tiny programmatic CLI interface used for tests and examples.
 
 Project layout (important files)
