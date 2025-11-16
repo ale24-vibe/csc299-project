@@ -1,0 +1,31 @@
+name: Python tests
+
+on:
+  push:
+    branches: [ main, '001-build-tasks-manager' ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Run pytest
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.14'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt || pip install pytest
+
+      - name: Run tasks5 tests
+        env:
+          PYTHONPATH: tasks5/src
+        run: |
+          python -m pytest -q tasks5/tests
