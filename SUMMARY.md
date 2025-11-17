@@ -1,0 +1,1 @@
+For my CSC299 Project, I decided with the help of AI to assist with my coding and planning to create a task manager. In this project, when running the main.py it would open up the manager as it will provide you 
