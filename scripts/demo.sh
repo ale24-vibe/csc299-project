@@ -4,20 +4,15 @@ set -euo pipefail
 REPO=/Users/alexle/csc299-project
 # Auto-detect venv python: prefer repo .venv, else system python3
 if [ -x "$REPO/.venv/bin/python" ]; then
-        VENV=$REPO/.venv/bin/python
+    VENV=$REPO/.venv/bin/python
 else
-        VENV=$(which python3 || which python || echo python)
+    VENV=$(which python3 || which python || echo python)
 fi
 
-# detect package directory (tolerate several names)
-if [ -d "Final Project" ]; then
-    PKG_DIR="Final Project"
-elif [ -d "tasks_final" ]; then
-    PKG_DIR="tasks_final"
-elif [ -d "tasks-final" ]; then
-    PKG_DIR="tasks-final"
-else
-    echo "Error: could not find package directory (looked for 'Final Project', 'tasks_final', 'tasks-final')."
+# We assume package is in "Final Project" directory (as requested).
+PKG_DIR="Final Project"
+if [ ! -d "$PKG_DIR" ]; then
+    echo "Error: expected package directory '$PKG_DIR' not found."
     exit 1
 fi
 
@@ -42,15 +37,15 @@ from tasks_app import storage, cli
 
 tmp = Path('tmp_demo_store.json')
 try:
-        storage.DEFAULT_STORE = tmp
-        t = cli.add_task('Demo run', 'auto')
-        print('OK added:', t.id)
-        cli.mark_done(t.id[:8])
-        print('Search:', [x.title for x in cli.search_tasks('Demo')])
-        cli.remove_task(t.id[:8])
+    storage.DEFAULT_STORE = tmp
+    t = cli.add_task('Demo run', 'auto')
+    print('OK added:', t.id)
+    cli.mark_done(t.id[:8])
+    print('Search:', [x.title for x in cli.search_tasks('Demo')])
+    cli.remove_task(t.id[:8])
 finally:
-        try: tmp.unlink()
-        except: pass
+    try: tmp.unlink()
+    except: pass
 PY
 
     echo "Smoke run complete."
@@ -72,21 +67,21 @@ from tasks_app import cli
 
 tmp = Path('tmp_demo_tasks_final.json')
 try:
-        storage.DEFAULT_STORE = tmp
-        print('Running: add via module')
-        main(['add', 'Final demo task', 'from module'])
-        print('Running: list via module')
-        main(['list'])
-        t = cli.list_tasks()[0]
-        print('Running: done via module (prefix)')
-        main(['done', t.id[:8]])
-        print('Running: search via module')
-        main(['search', 'Final'])
-        print('Running: remove via module')
-        main(['remove', t.id[:8]])
+    storage.DEFAULT_STORE = tmp
+    print('Running: add via module')
+    main(['add', 'Final demo task', 'from module'])
+    print('Running: list via module')
+    main(['list'])
+    t = cli.list_tasks()[0]
+    print('Running: done via module (prefix)')
+    main(['done', t.id[:8]])
+    print('Running: search via module')
+    main(['search', 'Final'])
+    print('Running: remove via module')
+    main(['remove', t.id[:8]])
 finally:
-        try: tmp.unlink()
-        except: pass
+    try: tmp.unlink()
+    except: pass
 PY
 fi
 

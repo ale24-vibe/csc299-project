@@ -1,3 +1,34 @@
+PY?=python3
+PKG_DIR := Final Project
+
+.PHONY: help test smoke final demo install
+
+help:
+	@echo "Makefile targets:"
+	@echo "  make test    - run pytest for the final project package"
+	@echo "  make smoke   - run quick smoke demo (uses tmp store)"
+	@echo "  make final   - run the module CLI demo (uses tmp store)"
+	@echo "  make demo    - runs smoke + final (full demo)"
+	@echo "  make install - optional: pip install -e 'Final Project'"
+
+test:
+	@echo "Running tests for '${PKG_DIR}'..."
+	PYTHONPATH="${PKG_DIR}/src" $(PY?) -m pytest -q "${PKG_DIR}/tests"
+
+smoke:
+	@echo "Running smoke script (temporary store)..."
+	./scripts/demo.sh smoke
+
+final:
+	@echo "Running final module CLI demo (temporary store)..."
+	./scripts/demo.sh final
+
+demo: smoke final
+	@echo "Demo complete."
+
+install:
+	@echo "Install '${PKG_DIR}' in editable mode (optional)"
+	$(PY?) -m pip install -e "${PKG_DIR}"
 REPO := /Users/alexle/csc299-project
 VENV := $(REPO)/.venv/bin/python
 
