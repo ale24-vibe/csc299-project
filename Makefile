@@ -1,5 +1,5 @@
 PY?=python3
-PKG_DIR := Final Project
+PKG_DIR := final_project
 
 .PHONY: help test smoke final demo install
 

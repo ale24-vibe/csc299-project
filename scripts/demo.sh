@@ -10,7 +10,7 @@ else
 fi
 
 # We assume package is in "Final Project" directory (as requested).
-PKG_DIR="Final Project"
+PKG_DIR="final_project"
 if [ ! -d "$PKG_DIR" ]; then
     echo "Error: expected package directory '$PKG_DIR' not found."
     exit 1
