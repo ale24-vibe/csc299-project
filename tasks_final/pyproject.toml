@@ -1,0 +1,11 @@
+[project]
+name = "tasks-final"
+version = "0.1.0"
+description = "Final consolidated tasks manager (teaching-focused)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[build-system]
+requires = ["setuptools>=61.0","wheel"]
+build-backend = "setuptools.build_meta"
