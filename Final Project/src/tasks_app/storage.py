@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import List, Optional
 from .model import Task
 
-DEFAULT_STORE = Path("tasks_final_store.json")
+DEFAULT_STORE = Path("final_project_store.json")
 
 
 def load_tasks(path: Optional[Path | str] = None) -> List[Task]:

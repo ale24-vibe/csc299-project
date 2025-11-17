@@ -22,18 +22,18 @@ PYTHON := $(shell [ -x .venv/bin/python ] && echo .venv/bin/python || echo pytho
 
 help:
 	@echo "Makefile targets:"
-	@echo "  make test   - run tasks_final tests"
-	@echo "  make smoke  - run smoke script (temporary store)"
-	@echo "  make demo   - run full demo (tests + smoke + module demo)"
-	@echo "  make install - install tasks_final in editable mode"
+ 	@echo "  make test   - run Final Project tests"
+ 	@echo "  make smoke  - run smoke script (temporary store)"
+ 	@echo "  make demo   - run full demo (tests + smoke + module demo)"
+ 	@echo "  make install - install Final Project in editable mode"
 
 test:
-	@echo "Running tasks_final tests..."
-	PYTHONPATH=tasks_final/src $(PYTHON) -m pytest -q tasks_final/tests
+	@echo "Running Final Project tests..."
+	PYTHONPATH="Final Project/src" $(PYTHON) -m pytest -q "Final Project/tests"
 
 smoke:
 	@echo "Running smoke script (safe temporary store)..."
-	 	PYTHONPATH=tasks_final/src $(PYTHON) - <<'PY'
+	 	PYTHONPATH="Final Project/src" $(PYTHON) - <<'PY'
 		from pathlib import Path
 		from tasks_app import storage, cli
 		tmp = Path('tmp_demo_store.json')
@@ -51,4 +51,4 @@ smoke:
 demo: test smoke
 
 install:
-	$(PYTHON) -m pip install -e tasks_final
+	$(PYTHON) -m pip install -e "Final Project"

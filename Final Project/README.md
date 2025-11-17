@@ -7,7 +7,7 @@ Highlights
 - Task model: `id` (UUID), `title`, `description`, `created_at` (timezone-aware ISO), `due_date`, `priority`, `status`, `tags`.
 - JSON-backed storage (pluggable) with a dynamic `DEFAULT_STORE` so tests and demos can override it.
 - Programmatic CLI helpers and a module entrypoint (`python -m tasks_app`).
-- Tests for model, storage and CLI included under `tasks_final/tests`.
+- Tests for model, storage and CLI included under `Final Project/tests`.
 
 Quick start (commands you can copy/paste)
 
@@ -17,7 +17,7 @@ Quick start (commands you can copy/paste)
 # from repository root (uses the repo venv)
 REPO=/Users/alexle/csc299-project
 VENV=$REPO/.venv/bin/python
-PYTHONPATH=tasks_final/src $VENV -m pytest -q tasks_final/tests
+PYTHONPATH="Final Project/src" $VENV -m pytest -q "Final Project/tests"
 ```
 
 2) Programmatic smoke run (safe — uses a temporary store and leaves repo unchanged)
@@ -66,13 +66,13 @@ Install editable (optional)
 
 ```bash
 # install in your venv so you can drop PYTHONPATH
-$VENV -m pip install -e tasks_final
+$VENV -m pip install -e "Final Project"
 # then run without PYTHONPATH
 $VENV -m tasks_app list
 ```
 
 Notes on storage
-- Default file: `tasks_final_store.json` in the repo root. For demos and tests set `storage.DEFAULT_STORE` to a temp path or pass a path to `load_tasks`/`save_tasks`.
+- Default file: `final_project_store.json` in the repo root. For demos and tests set `storage.DEFAULT_STORE` to a temp path or pass a path to `load_tasks`/`save_tasks`.
 - To avoid committing local demo state, you can remove and ignore the file:
 
 ```bash
@@ -96,7 +96,7 @@ REPO=/Users/alexle/csc299-project
 VENV=$REPO/.venv/bin/python
 
 echo "Running tests..."
-PYTHONPATH=tasks_final/src $VENV -m pytest -q tasks_final/tests
+PYTHONPATH="Final Project/src" $VENV -m pytest -q "Final Project/tests"
 
 echo "Running smoke script..."
 PYTHONPATH=tasks_final/src $VENV - <<'PY'
