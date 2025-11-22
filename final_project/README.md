@@ -33,6 +33,7 @@ REPL commands (short)
 - add <title> [| description]
 - list
 - done <id-or-prefix>
+- priority <id|prefix> <priority>   # set task priority (e.g. low, medium, high)
 - search <keyword>
 - remove <id-or-prefix>
 - exit
@@ -45,6 +46,7 @@ Run single commands without starting the REPL:
 PYTHONPATH="$PKG_DIR/src" $VENV -m tasks_app add "Buy snacks" "For demo"
 PYTHONPATH="$PKG_DIR/src" $VENV -m tasks_app list
 PYTHONPATH="$PKG_DIR/src" $VENV -m tasks_app search "snack"
+PYTHONPATH="$PKG_DIR/src" $VENV -m tasks_app priority <id-or-prefix> high
 ```
 
 Safe smoke demo
@@ -202,6 +204,7 @@ REPL commands (short):
 - add <title> [| description] — add a new task; you can separate a title and description with a `|` for convenience
 - list — list all tasks (id prefix, title, priority, due date)
 - done <id-or-prefix> — mark matching task(s) as done
+- priority <id|prefix> <priority> — set the priority for matching task(s) (e.g. low, medium, high)
 - search <keyword> — case-insensitive search over title and description
 - remove <id-or-prefix> — delete matching task(s)
 - exit — quit the REPL
@@ -211,7 +214,7 @@ Example REPL session:
 ```
 Welcome to Task Manager (type 'help' for commands)
 > help
-Commands: add <title> [| description], list, done <id|prefix>, search <keyword>, remove <id|prefix>, exit
+Commands: add <title> [| description], list, done <id|prefix>, priority <id|prefix> <priority>, search <keyword>, remove <id|prefix>, exit
 > add Buy snacks | For demo
 Added task: Buy snacks (id=8f3a2b1c)
 > list
