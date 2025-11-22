@@ -43,3 +43,21 @@ def remove_task(task_id: str) -> bool:
 def search_tasks(keyword: str) -> List[Task]:
     kw = keyword.lower()
     return [t for t in load_tasks() if kw in t.title.lower() or kw in t.description.lower()]
+
+
+def set_priority(task_id: str, priority: str) -> bool:
+    """Set the priority for tasks matching the given id prefix.
+
+    Returns True if at least one task was updated, False otherwise.
+    """
+    tasks = load_tasks()
+    matched = 0
+    for t in tasks:
+        if str(t.id).startswith(str(task_id)):
+            if t.priority != priority:
+                t.priority = priority
+            matched += 1
+    if matched:
+        save_tasks(tasks)
+        return True
+    return False

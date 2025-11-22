@@ -46,7 +46,7 @@ def repl():
         if cmd_name == "exit":
             break
         elif cmd_name == "help":
-            print("Commands: add <title> [| description], list, done <id|prefix>, search <keyword>, remove <id|prefix>, exit")
+            print("Commands: add <title> [| description], list, done <id|prefix>, priority <id|prefix> <priority>, search <keyword>, remove <id|prefix>, exit")
         elif cmd_name == "add":
             # support: add Title | optional description
             title = arg
@@ -66,6 +66,18 @@ def repl():
                 continue
             ok = cli.mark_done(arg)
             print(f"Marked done: {ok}")
+        elif cmd_name == "priority":
+            # expected: priority <id|prefix> <priority>
+            if not arg:
+                print("Usage: priority <id> <priority>")
+                continue
+            parts = arg.split(maxsplit=1)
+            if len(parts) < 2:
+                print("Usage: priority <id> <priority>")
+                continue
+            tid, pr = parts[0], parts[1]
+            ok = cli.set_priority(tid, pr)
+            print(f"Priority set: {ok}")
         elif cmd_name == "search":
             if not arg:
                 print("Please provide a search keyword. Usage: search <keyword>")

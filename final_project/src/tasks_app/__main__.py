@@ -15,6 +15,10 @@ def main(argv=None):
     p_done = sub.add_parser("done")
     p_done.add_argument("id")
 
+    p_prio = sub.add_parser("priority")
+    p_prio.add_argument("id")
+    p_prio.add_argument("priority")
+
     p_remove = sub.add_parser("remove")
     p_remove.add_argument("id")
 
@@ -32,6 +36,10 @@ def main(argv=None):
     elif args.cmd == "done":
         ok = mark_done(args.id)
         print("Done:" , ok)
+    elif args.cmd == "priority":
+        # set priority
+        ok = __import__(".cli", fromlist=["set_priority"]).set_priority(args.id, args.priority)
+        print("Priority set:", ok)
     elif args.cmd == "remove":
         ok = remove_task(args.id)
         print("Removed:", ok)
